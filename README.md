@@ -34,7 +34,8 @@ flowchart LR
     B --> C["dbt Models
     (STG -> INT -> FACT/DIM)"]
     C --> D["Power BI Dashboard"]
-    C -.-> E["Apache Airflow\nFuture Orchestration"]
+    C -.-> E["Apache Airflow 
+    (Future Orchestration)"]
 
 ```
 
