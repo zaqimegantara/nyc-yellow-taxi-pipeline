@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: fct_trip
+    description: "Daily summary of NYC taxi trips, enriched with payment and rate code dimensions."
+    columns:
+      - name: trip_date
+        description: "The date of the taxi trip, truncated to the day."
+        tests:
+          - not_null
+
+      - name: payment_description
+        description: "Human-readable payment method (e.g. Credit Card, Cash)."
+
+      - name: rate_description
+        description: "Human-readable rate code (e.g. JFK, Newark, Standard rate)."
+
+      - name: total_trips
+        description: "Total number of taxi trips on that day."
+
+      - name: total_passengers
+        description: "Total passengers carried across all trips on that day."
+
+      - name: avg_trip_distance
+        description: "Average trip distance in miles."
+
+      - name: total_revenue
+        description: "Sum of total_amount for all trips that day (fare + tips + extras)."
+
+      - name: total_tips
+        description: "Sum of all tip amounts for the day."
+
+      - name: avg_fare
+        description: "Average fare amount per trip."
+
+      - name: avg_tip
+        description: "Average tip amount per trip."

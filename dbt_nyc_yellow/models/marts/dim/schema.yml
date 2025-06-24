@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: dim_payment_type
+    description: "Maps payment_type code to a human-readable description."
+    columns:
+      - name: payment_type
+        description: "The ID representing the payment type."
+        tests:
+          - not_null
+          - unique
+      - name: payment_description
+        description: "The readable payment method name."
+
+  - name: dim_rate_code
+    description: "Maps rate_code_id to a readable rate code description."
+    columns:
+      - name: rate_code_id
+        description: "The ID representing the rate code."
+        tests:
+          - not_null
+          - unique
+      - name: rate_description
+        description: "The readable rate code description."
