@@ -1,94 +1,92 @@
-# 🚖 NYC Taxi Data Pipeline with Azure & Snowflake
+# NYC Taxi Trip Pipeline and Dashboard
 
-## 🚀 Overview
+## Introduction
 
-This project demonstrates a full cloud-based data engineering pipeline for NYC Taxi data using Azure Blob Storage and Snowflake. The goal is to simulate an industry-relevant ELT process with modular, scalable components.
+This project is an **end‑to‑end data engineering and analytics solution** for NYC Taxi Trip data.
+It demonstrates extracting, loading, transforming, and visualizing data across modern data platforms:
 
----
+* **Azure Blob Storage** for raw data
+* **Snowflake** for storage and analytics
+* **dbt** for data modeling
+* **Power BI** for interactive dashboards
+* **Future**: Apache Airflow for orchestration
 
-## 🔧 Tech Stack
-
-* Python
-* Azure Blob Storage
-* Snowflake
-* dbt (planned)
-* Airflow (planned)
-* SQL
-* Parquet
-* Pandas / PyArrow
+> Currently, the project is fully functional for ingestion, modeling, and dashboards. Apache Airflow will be added in the future.
 
 ---
 
-## 📂 Pipeline Steps
+## Features
 
-1. Download NYC Taxi data (Parquet format)
-2. Upload to Azure Blob Storage using Python
-3. Create external stage in Snowflake linked to Azure Blob
-4. Load data into Snowflake tables using `COPY INTO` and/or `VARIANT` staging
-5. (Planned) Use dbt for data transformation
-6. (Planned) Orchestrate the pipeline using Apache Airflow
-
----
-
-## 📊 Project Goals
-
-* Build an end-to-end data pipeline with cloud components
-* Practice working with real-world data formats (e.g., Parquet)
-* Learn Snowflake data loading strategies
-* Prepare the data for downstream analytics and BI tools
+- Azure Blob Storage as the data lake
+- Snowflake as the data warehouse
+- dbt for data modeling and transformations
+- Power BI for interactive dashboards
+- Apache Airflow for orchestration (Planned)
 
 ---
 
-## 🔐 Environment Setup
+## 🗂️ Project Architecture
 
-Create a `.env` file based on the `.env.example`. This should include your credentials for Azure and Snowflake (do not commit actual secrets).
-
-```env
-AZURE_STORAGE_CONNECTION_STRING=your_connection_string
-SNOWFLAKE_USER=your_username
-SNOWFLAKE_PASSWORD=your_password
-SNOWFLAKE_ACCOUNT=your_account_url
-SNOWFLAKE_DATABASE=NYC_TAXI_DB
-SNOWFLAKE_SCHEMA=RAW
-SNOWFLAKE_WAREHOUSE=COMPUTE_WH
+```
+├─ 📁 dags/                # Apache Airflow DAG files (Planned)
+├─ 📁 dashboard/           # Power BI .pbix files
+├─ 📁 data/                # Source data files
+├─ 📁 dbt_nyc_yellow/      # dbt project (models, seeds, snapshots, schema.yml, etc.)
+├─ 📁 docker/              # Dockerfiles, docker compose
+├─ 📁 scripts/             # Scripts for data upload and utilities
+├─ 📁 logs/                # Logs for dbt, future airflow
+├─ .gitignore              # Git ignore rules
+├─ requirements.txt        # Python dependencies
+├─ README.md               # Project readme
 ```
 
 ---
 
-## 📊 Folder Structure
+## 🛠️ Technologies
 
+* **Python 3.9+**
+* **Azure Blob Storage**
+* **Snowflake**
+* **dbt**
+* **Power BI**
+* **Apache Airflow (Future)**
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+* Python 3.9+
+* Snowflake account
+* Azure Blob Storage account
+* dbt
+* Power BI
+* `.env` files configured Azure Connection
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
 ```
-nyc-taxi-pipeline/
-├── upload_blob.py           # Upload raw data to Azure Blob
-├── load_to_snowflake.py     # Load data from Azure to Snowflake
-├── dbt/                     # dbt models and config (planned)
-├── dags/                    # Airflow DAGs (planned)
-├── .env.example             # Example environment config
-├── requirements.txt         # Python dependencies
-└── README.md
+
+### Run dbt Models
+
+```bash
+cd dbt_nyc_yellow
+dbt run
 ```
 
----
+### View the Dashboard
 
-## ⏳ Next Steps
-
-* Set up dbt project and create transformation models
-* Build Airflow DAG to orchestrate the pipeline
-* (Optional) Add BI layer using Power BI or Streamlit
+Open the `.pbix` files located in the `dashboard/` directory.
 
 ---
 
-## 🚀 Status
+## Created By
 
-* ✅ Data uploaded to Azure Blob
-* ✅ Data successfully loaded into Snowflake
-* ⏳ dbt setup in progress
-* ⏳ Airflow orchestration planned
+**Rizky Zaqi Megantara**
+[LinkedIn](https://www.linkedin.com/in/zaqi-megantara-4989ab2a2/) | [GitHub](https://github.com/zaqimegantara)
 
 ---
 
-## 🧵 Follow My Progress
-
-I'll be sharing updates and learnings as I go — follow along on LinkedIn!
-
-\#DataEngineering #Snowflake #Azure #NYCTaxi #ELT #LearningInPublic
